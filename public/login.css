@@ -1,0 +1,22 @@
+label {
+    color: blueviolet
+}
+
+div {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+block {
+    margin: 10px;
+}
+
+/**
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+**/
