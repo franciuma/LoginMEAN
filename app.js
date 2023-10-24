@@ -9,6 +9,14 @@ const rutaVistas = path.join(__dirname, '/vistas')
 // Importar Schemas
 const User = require('./schemas/userSchema')
 
+// Configurar servir archivos a la carpeta public (para CSS)
+app.use(express.static('public'))
+
+// En esta ruta, sirve la vista de Angular
+app.get('/angular-vista', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'index.html'))
+})
+
 // Configurar motor de plantillas ejs
 app.set('view engine', 'ejs')
 app.set('views', rutaVistas)
@@ -24,9 +32,6 @@ mongoose.connect(mongoURI, {
   .catch((error) => {
     console.error('Error al conectar a MongoDB:', error)
   })
-
-// Configurar servir archivos a la carpeta public (para CSS)
-app.use(express.static('public'))
 
 app.get('/', (req, res) => {
   res.render('loginView')

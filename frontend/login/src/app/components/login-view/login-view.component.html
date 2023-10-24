@@ -1,0 +1,17 @@
+<div class="screen">
+    <form (submit)="login()">
+        <div class="login">
+            <label>Ingresa el usuario: </label><br>
+            <input type="text" [(ngModel)]="profile.username" id="usuarioId" name="usuario" placeholder="usuario" required><br>
+        </div>
+        <div class="login">
+            <label>Ingresa la contraseña:</label><br>
+            <input type="password" [(ngModel)]="profile.password" id="passwordId" name="password" placeholder="contraseña" required><br>
+        </div>
+        <div class="login">
+            <input type="submit" id="submitLogin" name="submitLogin" value="Iniciar sesión">
+            <input type="submit" id="submitLoginGoogle" name="submitLoginGoogle" value="Iniciar sesión con Google">
+            <input type="submit" id="registro" name="registro" value="Registrarse">
+        </div>
+    </form>
+</div>
