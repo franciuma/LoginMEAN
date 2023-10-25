@@ -1,17 +1,24 @@
-<div class="screen">
-    <form (submit)="login()">
-        <div class="login">
-            <label>Ingresa el usuario: </label><br>
-            <input type="text" [(ngModel)]="profile.username" id="usuarioId" name="usuario" placeholder="usuario" required><br>
-        </div>
-        <div class="login">
-            <label>Ingresa la contraseña:</label><br>
-            <input type="password" [(ngModel)]="profile.password" id="passwordId" name="password" placeholder="contraseña" required><br>
-        </div>
-        <div class="login">
-            <input type="submit" id="submitLogin" name="submitLogin" value="Iniciar sesión">
-            <input type="submit" id="submitLoginGoogle" name="submitLoginGoogle" value="Iniciar sesión con Google">
-            <input type="submit" id="registro" name="registro" value="Registrarse">
-        </div>
-    </form>
-</div>
+<mat-card class="screen">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <form (submit)="login()">
+    <div class="login">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre de Usuario</mat-label>
+        <input matInput [formControl]="usernameControl" name="username" placeholder="Usuario" required>
+      </mat-form-field>
+    </div>
+    <div class="login">
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [formControl]="passwordControl" name="password" type="password" placeholder="Contraseña" required>
+      </mat-form-field>
+    </div>
+    <div class="login">
+      <button mat-raised-button color="primary" type="submit">Iniciar sesión</button>
+      <button mat-raised-button color="primary" type="button">Iniciar sesión con Google</button>
+      <button mat-raised-button color="primary" type="button">Registrarse</button>
+    </div>
+  </form>
+</mat-card>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-import { Profile } from '../models/Profile';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(profile: Profile) {
-
-    return this.http.post(this.URL + '/usuarios', profile)
+  login(user: User) {
+    return this.http.post(this.URL + '/login', user)
   }
 }
