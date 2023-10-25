@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login-view',
@@ -12,8 +14,22 @@ export class LoginViewComponent {
     password: ''
   }
 
+  constructor(private authService: AuthService,
+              private router: Router
+              ) {}
+
   login() {
-    console.log(this.profile)
+    this.authService.login(this.profile)
+      .subscribe({
+        next: (res) => {
+          console.log(res)
+          //,
+          //this.router.navigate(['/exito'])
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
   }
 
 }

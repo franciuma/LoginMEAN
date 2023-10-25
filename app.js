@@ -1,10 +1,14 @@
 const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
+const cors = require('cors')
 const app = express()
 const port = 3000
 const mongoURI = 'mongodb://127.0.0.1:27017/mongodb'
 const rutaVistas = path.join(__dirname, '/vistas')
+
+// Configurar CORS
+app.use(cors())
 
 // Importar Schemas
 const User = require('./schemas/userSchema')
