@@ -4,6 +4,10 @@ const router = Router()
 // Importar Schemas
 const User = require('../models/userSchema')
 
+const EXITO = 'Usuario Logueado correctamente'
+const USUARIO_INCORRECTO = 'Usuario no existente'
+const CONTRASENIA_INCORRECTA = 'Contraseña incorrecta'
+
 router.get('/usuarios', async (req, res) => {
   try {
     const users = await User.find()
@@ -19,11 +23,11 @@ router.post('/login', async (req, res) => {
   const userDB = await User.findOne({ username })
 
   if (userDB && userDB.password === password) {
-    res.send('Usuario Logueado correctamente')
+    res.send({ message: EXITO })
   } else if (!userDB) {
-    res.send('Usuario no existente')
+    res.status(401).send({ message: USUARIO_INCORRECTO })
   } else {
-    res.send('Contraseña incorrecta')
+    res.status(401).send({ message: CONTRASENIA_INCORRECTA })
   }
 })
 

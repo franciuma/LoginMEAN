@@ -3,7 +3,7 @@ const path = require('path')
 const cors = require('cors')
 const app = express()
 const port = 3000
-const rutaVistas = path.join(__dirname, '/vistas')
+const rutaVistas = path.join(__dirname, '../vistas')
 
 // Usamos json para que se interpreten los req.body
 app.use(express.json())
@@ -25,6 +25,7 @@ app.get('/angular-vista', (req, res) => {
 // Configurar motor de plantillas ejs
 app.set('view engine', 'ejs')
 app.set('views', rutaVistas)
+console.log(rutaVistas)
 
 app.get('/', (req, res) => {
   res.render('loginView')

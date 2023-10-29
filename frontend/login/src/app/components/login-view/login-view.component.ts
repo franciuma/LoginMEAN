@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 //Form field angular material
 import { FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login-view',
@@ -13,7 +14,11 @@ export class LoginViewComponent {
   usernameControl = new FormControl();
   passwordControl = new FormControl();
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
 
   login() {
     const user = {
@@ -24,11 +29,15 @@ export class LoginViewComponent {
     this.authService.login(user).subscribe({
       next: (res) => {
         console.log(res);
-        //,
-        //this.router.navigate(['/exito'])
+        this.router.navigate(['/principal']);
       },
       error: (err) => {
-        console.log(err);
+        if (err.status === 401) {
+          const errorMessage = err.error.message;
+          this.snackBar.open(errorMessage, 'Cerrar', {
+            duration: 2000,
+          });
+        }
       },
     });
   }
