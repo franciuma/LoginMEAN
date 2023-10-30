@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
   const userDB = await User.findOne({ username })
 
   if (userDB && userDB.password === password) {
-    res.send({ message: EXITO })
+    res.send({ message: EXITO, role: userDB.role })
   } else if (!userDB) {
     res.status(401).send({ message: USUARIO_INCORRECTO })
   } else {
@@ -32,8 +32,8 @@ router.post('/login', async (req, res) => {
 })
 
 router.post('/registro', async (req, res) => {
-  const { username, password } = req.body
-  const newUser = new User({ username, password })
+  const { username, password, role } = req.body
+  const newUser = new User({ username, password, role })
   console.log(newUser)
   res.send('hola')
 })

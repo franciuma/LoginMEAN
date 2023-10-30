@@ -27,9 +27,14 @@ export class LoginViewComponent {
     };
 
     this.authService.login(user).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.router.navigate(['/principal']);
+      next: (res: any) => {
+        const role = res.role;
+
+        if (role === 'defaultUser') {
+          this.router.navigate(['/principal']);
+        } else {
+          this.router.navigate(['/admin']);
+        }
       },
       error: (err) => {
         if (err.status === 401) {
