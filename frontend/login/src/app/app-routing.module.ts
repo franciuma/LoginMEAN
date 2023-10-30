@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginViewComponent } from './components/login-view/login-view.component';
 import { MainViewComponent } from './components/main-view/main-view.component';
 import { AdminViewComponent } from './components/admin-view/admin-view.component';
+import { RegisterViewComponent } from './components/register-view/register-view.component';
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminViewComponent,
+  },
+  {
+    path: 'registro',
+    component: RegisterViewComponent,
   },
 ];
 

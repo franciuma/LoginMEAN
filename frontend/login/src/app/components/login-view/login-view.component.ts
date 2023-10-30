@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/userInterface';
 //Form field angular material
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -21,7 +22,7 @@ export class LoginViewComponent {
   ) {}
 
   login() {
-    const user = {
+    const user: User = {
       username: this.usernameControl.value,
       password: this.passwordControl.value,
     };
@@ -45,5 +46,9 @@ export class LoginViewComponent {
         }
       },
     });
+  }
+
+  navigateToRegisterView() {
+    this.router.navigate(['/registro']);
   }
 }
