@@ -33,9 +33,21 @@ router.post('/login', async (req, res) => {
 
 router.post('/registro', async (req, res) => {
   const { username, password, role } = req.body
+  const existingUser = await User.findOne({ username })
+
+  if (existingUser) {
+    res.status(409).send({ message: 'El nombre de usuario ya existe' })
+    return
+  }
+
   const newUser = new User({ username, password, role })
-  console.log(newUser)
-  res.send('hola')
+
+  try {
+    const savedUser = newUser.save()
+    res.status(201).json(savedUser)
+  } catch (error) {
+    res.status(500).send({ message: 'Error al insertar usuario en la base de datos' })
+  }
 })
 
 module.exports = router

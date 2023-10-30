@@ -31,7 +31,7 @@ export class LoginViewComponent {
       next: (res: any) => {
         const role = res.role;
 
-        if (role === 'defaultUser') {
+        if (role === 'Usuario') {
           this.router.navigate(['/principal']);
         } else {
           this.router.navigate(['/admin']);
