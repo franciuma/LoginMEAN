@@ -6,7 +6,7 @@ const User = require('../models/userSchema')
 
 router.get('/usuarios', async (req, res) => {
   try {
-    const users = await User.find()
+    const users = await User.find().sort('role')
     res.json(users)
   } catch (error) {
     console.error('Error mostrando usuarios ', error)
