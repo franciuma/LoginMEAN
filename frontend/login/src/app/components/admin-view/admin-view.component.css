@@ -11,3 +11,44 @@ button {
     margin: 10px;
     border-radius: 10px;
 }
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilos para las celdas de encabezado */
+  th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Estilos para las celdas de datos */
+  td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Estilos para las filas alternas (para un aspecto de tabla zebra) */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Estilos para los botones de "Editar" y "Eliminar" */
+  button {
+    margin: 5px;
+  }
+  button[color="primary"] {
+    background-color: #007bff;
+    color: #fff;
+  }
+  button[color="warn"] {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  

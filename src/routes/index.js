@@ -8,16 +8,6 @@ const EXITO = 'Usuario Logueado correctamente'
 const USUARIO_INCORRECTO = 'Usuario no existente'
 const CONTRASENIA_INCORRECTA = 'Contraseña incorrecta'
 
-router.get('/usuarios', async (req, res) => {
-  try {
-    const users = await User.find()
-    res.json(users)
-  } catch (error) {
-    console.error('Error mostrando usuarios ', error)
-    res.status(500).json({ error: 'Error mostrando usuarios' })
-  }
-})
-
 router.post('/login', async (req, res) => {
   const { username, password } = req.body
   const userDB = await User.findOne({ username })

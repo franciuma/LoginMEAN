@@ -32,6 +32,7 @@ app.get('/', (req, res) => {
 })
 
 app.use(require('./routes/index'))
+app.use(require('./routes/userCrud'))
 
 app.listen(port, () => {
   console.log(`Aplicación en puerto ${port}`)

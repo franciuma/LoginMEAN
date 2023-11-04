@@ -3,9 +3,35 @@
       <mat-card-title>Página ADMIN</mat-card-title>
     </mat-card-header>
   </mat-card>
+  <br>
   <div class="screen">
-    <button mat-raised-button color="primary">Editar usuario, deberia estar en mainView</button>
-    <button mat-raised-button color="warn">Eliminar usuario</button>
-    <button mat-raised-button color="primary">Ver usuarios</button>
+    <div class="userTable">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Contraseña</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.username }}</td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.role }}</td>
+            <td>
+              <button mat-raised-button color="primary">
+                Editar
+              </button>
+              <button mat-raised-button color="warn">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+  
   
