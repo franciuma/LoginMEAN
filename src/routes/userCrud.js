@@ -14,4 +14,15 @@ router.get('/usuarios', async (req, res) => {
   }
 })
 
+router.get('/eliminar/:userId', async (req, res) => {
+  const userId = req.params.userId
+  try {
+    await User.findByIdAndRemove(userId)
+    res.json({ message: 'Usuario eliminado con éxito' })
+  } catch (error) {
+    console.error('Error eliminando al usuario con id ' + userId, error)
+    res.status(500).json({ error: 'Error eliminando al usuario' })
+  }
+})
+
 module.exports = router
