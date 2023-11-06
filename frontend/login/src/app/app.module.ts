@@ -17,6 +17,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditUserViewComponent } from './components/edit-user-view/edit-user-view.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MainViewComponent,
     AdminViewComponent,
     RegisterViewComponent,
+    EditUserViewComponent,
   ],
   imports: [
     BrowserModule,

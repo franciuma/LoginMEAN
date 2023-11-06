@@ -24,7 +24,6 @@ export class AdminViewComponent {
     this.userService.list().subscribe({
       next: (res: any) => {
         this.users = res;
-        console.log(this.users);
       },
       error: (err: any) => {},
     });
@@ -34,7 +33,7 @@ export class AdminViewComponent {
     this.router.navigate(['/login']);
   }
 
-  eliminarUsuario(user: User) {
+  deleteUser(user: User) {
     this.userService.delete(user).subscribe({
       next: (res: any) => {
         this.snackBar.open('Usuario eliminado con éxito', 'Cerrar', {
@@ -51,5 +50,9 @@ export class AdminViewComponent {
         }
       },
     });
+  }
+
+  redirectEditView(user: User) {
+    this.router.navigate(['/editar', user._id]);
   }
 }

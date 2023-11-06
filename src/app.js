@@ -25,7 +25,6 @@ app.get('/angular-vista', (req, res) => {
 // Configurar motor de plantillas ejs
 app.set('view engine', 'ejs')
 app.set('views', rutaVistas)
-console.log(rutaVistas)
 
 app.get('/', (req, res) => {
   res.render('loginView')

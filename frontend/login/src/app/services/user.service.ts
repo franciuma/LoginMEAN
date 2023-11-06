@@ -15,7 +15,16 @@ export class UserService {
   }
 
   delete(user: User) {
-    const id = user._id;
-    return this.http.get(this.URL + `/eliminar/${id}`);
+    const userId = user._id;
+    return this.http.get(this.URL + `/eliminar/${userId}`);
+  }
+
+  get(userId: string) {
+    return this.http.get(this.URL + `/usuarios/${userId}`);
+  }
+
+  update(user: User) {
+    const userId = user._id;
+    return this.http.put(this.URL + `/actualizar/${userId}`, user);
   }
 }

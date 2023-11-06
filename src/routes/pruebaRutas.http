@@ -15,3 +15,13 @@ Content-Type: application/json
     "username": "franci",
     "password": "franci"
 }
+
+######
+
+PUT http://localhost:3000/actualizar/6546a30cc4fe7ba014b370c2
+Content-Type: application/json
+
+{
+    "username": "nuevoNombre",
+    "password": "nuevaContraseña"
+}

@@ -21,10 +21,10 @@
             <td>{{ user.password }}</td>
             <td>{{ user.role }}</td>
             <td>
-              <button mat-raised-button color="primary">
+              <button mat-raised-button color="primary" (click)="redirectEditView(user)">
                 Editar
               </button>
-              <button mat-raised-button color="warn" (click)="eliminarUsuario(user)">
+              <button mat-raised-button color="warn" (click)="deleteUser(user)">
                 Eliminar
               </button>
             </td>

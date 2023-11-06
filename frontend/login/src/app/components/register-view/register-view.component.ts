@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { User } from 'src/app/interfaces/userInterface';
+import { userInterface } from 'src/app/interfaces/userInterface';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -22,7 +22,7 @@ export class RegisterViewComponent {
   ) {}
 
   register() {
-    const user: User = {
+    const user: userInterface = {
       username: this.usernameControl.value,
       password: this.passwordControl.value,
       role: this.rolControl.value,

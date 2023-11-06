@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { User } from 'src/app/interfaces/userInterface';
+import { userInterface } from 'src/app/interfaces/userInterface';
 //Form field angular material
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -22,7 +22,7 @@ export class LoginViewComponent {
   ) {}
 
   login() {
-    const user: User = {
+    const user: userInterface = {
       username: this.usernameControl.value,
       password: this.passwordControl.value,
     };
